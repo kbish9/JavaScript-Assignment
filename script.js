@@ -1,34 +1,42 @@
-const cOptions = ["Rock", "Paper", "Scissors"];
-const playerSelection = prompt(`Please pick rock, paper or scissor.`).toLocaleLowerCase().trim();
-  if (playerSelection==="rock"||"scissors"||"paper") {
-    playerChoice =`${playerSelection}`;
-  } else {
-    console.log(`Error, please try again.`);
+let options = ['rock', 'paper', 'scissors'];
+let playerScore=0;
+let computerScore=0;
+let gameTie=0;
+    
+const getComputerChoice = () => {
+  let randomChoice  = options[Math.floor((Math.random() * 3))];
+  return randomChoice;
+}
+    
+const gamePlay = () => {
+  for (let i = 0; i < 5; i++) {
+    let input = prompt('Choose paper, scissors or rock');
+    const playerSelection = input.toLowerCase();
+    const computerChoice = getComputerChoice();
+        
+    const computerWins = `Computer Wins! ${computerChoice} beats ${playerSelection}.`;
+    const playerWins = `Player wins! ${playerSelection} beats ${computerChoice}.`;
+    const tie = `It's a tie, ${playerSelection} is equal to ${computerChoice}.`;
+    
+    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+      i = i - 1;
+      console.log("Nice try! Please enter a valid input.");
+    }
+    if (playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'paper' && computerChoice === 'scissors' || playerSelection === 'scissors' && computerChoice === 'rock') {
+      computerScore+=1;
+      console.log(computerWins);
+    } 
+    if (playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper' || playerSelection === 'rock' && computerChoice === 'scissors') {
+      playerScore+=1;
+      console.log(playerWins);
+    } else {
+      if (playerSelection === computerChoice) {
+      gameTie+=1;
+      console.log(tie);
+      }
+    }
   }
-
-
-function computerPlay() {
- return cOptions[Math.floor(Math.random()*3)];
+console.log("Computer:"+computerScore+' vs '+'Player:'+playerScore+' Tie Games: '+gameTie);
 }
 
-function playRules(computerPlay, playerSelection) {
-  if (computerPlay=="Rock" && playerSelection=="paper") {
-    output="You win! Paper beats Rock";
-   } else if(computerPlay=="Rock" && playerSelection=="scissors") {
-    output="You lose! Scissors beats Rock";
-   } else if (computerPlay=="Paper" && playerSelection=="rock") {
-    output="You lose! Rock beats Paper";
-   } else if (computerPlay=="Paper" && playerSelection=="scissors") {
-    output="You win! Scissors beats Paper";
-   } else if (computerPlay=="Scissors" && playerSelection=="rock") {
-    output="You win! Rock beats Scissors";
-   } else if (computerPlay=="Scissors" && playerSelection=="paper") {
-    output="You lose! Paper beats Scissors";
-   } else {
-    output="It's a tie";
-  }
-  return(output);
-}
-
-
-console.log(playerSelection,computerPlay(),playRules(computerPlay(cOptions),playerSelection));
+gamePlay();
