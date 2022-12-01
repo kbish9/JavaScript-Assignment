@@ -1,5 +1,5 @@
 # JavaScript-Assignment
 
-Rock, Paper Scissors
+Paper, Scissors, Rock
 
 https://kbish9.github.io/JavaScript-Assignment/
