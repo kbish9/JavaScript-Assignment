@@ -22,11 +22,11 @@ const gamePlay = () => {
       i = i - 1;
       console.log("Nice try! Please enter a valid input.");
     }
-    if (playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'paper' && computerChoice === 'scissors' || playerSelection === 'scissors' && computerChoice === 'rock') {
+    else if (playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'paper' && computerChoice === 'scissors' || playerSelection === 'scissors' && computerChoice === 'rock') {
       computerScore+=1;
       console.log(computerWins);
     } 
-    if (playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper' || playerSelection === 'rock' && computerChoice === 'scissors') {
+    else if (playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper' || playerSelection === 'rock' && computerChoice === 'scissors') {
       playerScore+=1;
       console.log(playerWins);
     } else {
