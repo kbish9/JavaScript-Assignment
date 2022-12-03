@@ -29,12 +29,11 @@ const gamePlay = () => {
     else if (playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper' || playerSelection === 'rock' && computerChoice === 'scissors') {
       playerScore+=1;
       console.log(playerWins);
-    } else {
-      if (playerSelection === computerChoice) {
+    } 
+    else if (playerSelection === computerChoice) {
       gameTie+=1;
       console.log(tie);
       }
-    }
   }
 console.log("Computer:"+computerScore+' vs '+'Player:'+playerScore+' Tie Games: '+gameTie);
 }
