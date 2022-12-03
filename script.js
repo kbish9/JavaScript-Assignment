@@ -11,7 +11,7 @@ const getComputerChoice = () => {
 const gamePlay = () => {
   for (let i = 0; i < 5; i++) {
     let input = prompt('Choose paper, scissors or rock');
-    const playerSelection = input.toLowerCase();
+    const playerSelection = input.toLowerCase().trim();
     const computerChoice = getComputerChoice();
         
     const computerWins = `Computer Wins! ${computerChoice} beats ${playerSelection}.`;
